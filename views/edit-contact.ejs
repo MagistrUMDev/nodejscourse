@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <form id="post-form" method="post" action="/edit/contact/<%= contact.id %>?_method=PUT">
+      <div class="form-info">
+        <label
+          >Contact Title
+          <input type="text" name="name" value="<%= contact.name %>" />
+        </label>
+        <label
+          >Contact Link
+          <input type="text" name="link" value="<%= contact.link %>"/>
+        </label>
+      </div>
+      <div class="form-button">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>

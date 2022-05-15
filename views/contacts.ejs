@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <h1>Contacts:</h1>
+  <ul class="contacts">
+    <% if (contacts.length) { %>
+      <% contacts.forEach(({ id ,name, link }) => { %>
+      <div>
+        <li class="list-item-contacts">
+            <a href="<%= link %>"><%= name %></a>
+            <button class="contacts-btn-delete" data-id="<%= id %>">
+              <i class="fas fa-trash-alt" data-id="<%= id %>"></i>
+            </button>
+            <a href="/edit/contact/<%= id %>" class="contacts-btn-edit">
+              <i class="fas fa-edit"></i>
+            </a>
+        </li>
+      </div>
+      <% }) %>
+    <% } %>
+  </ul>
+</body>
+</html>
+
+<script>
+  document.addEventListener("click", (e) => {
+    const id = e.target?.dataset?.id || null;
+    if (id) {
+      fetch(`contacts/${id}`, {
+        method: "DELETE",
+      }).then(() => {
+        window.location.reload();
+      });
+    }
+  });
+</script>

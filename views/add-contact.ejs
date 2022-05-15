@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <form id="post-form" method="post" action="/add-contact">
+    <div class="form-info">
+      <label>Contact Title
+        <input type="text" name="name">
+      </label>
+      <label>Contact Link
+        <input type="text" name="link">
+      </label>
+    </div>
+    <div class="form-button">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</body>
+</html>
